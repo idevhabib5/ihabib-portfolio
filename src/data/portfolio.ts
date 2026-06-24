@@ -52,7 +52,7 @@ export const aboutContent = {
   "Ranked 1st among 120+ teams in a nationwide Full-Stack Development Competition",
     "Magna cum laude in Computer Science at COMSATS University Islamabad",
     "Shipped 4+ production-grade projects spanning marketplaces, SaaS, and social platforms",
-    "7 professional certifications from DataCamp, Duke, Vanderbilt & Microsoft",
+    "7 professional certifications from Aspire, DataCamp, Duke, Vanderbilt & Microsoft",
   ],
 };
 
@@ -146,18 +146,37 @@ export const experience = [
   },
 ];
 
-export const education = {
-  institution: "COMSATS University Islamabad",
-  degree: "Bachelor of Science in Computer Science",
-  honors: "Magna cum laude",
-  coursework: [
-    "Data Structures",
-    "Algorithms",
-    "Database Systems",
-    "Software Engineering",
-    "Web Development",
-  ],
-};
+export const educationEntries = [
+  {
+    id: "comsats",
+    institution: "COMSATS University Islamabad",
+    program: "Bachelor of Science in Computer Science",
+    honors: "Magna cum laude",
+    period: null,
+    logo: null,
+    skills: [] as string[],
+    coursework: [
+      "Data Structures",
+      "Algorithms",
+      "Database Systems",
+      "Software Engineering",
+      "Web Development",
+    ],
+  },
+  {
+    id: "aspire",
+    institution: "Aspire Institute",
+    program: "Leadership Program",
+    honors: null,
+    period: "Jan 2024 — Aug 2024",
+    logo: "/logos/aspire-institute.svg",
+    skills: ["Leadership", "Communication", "Team Building"],
+    coursework: [] as string[],
+  },
+];
+
+/** @deprecated Use educationEntries — kept for any legacy imports */
+export const education = educationEntries[0];
 
 export const projects = [
   {
@@ -186,6 +205,7 @@ export const projects = [
     accent: "#6366f1",
   },
   {
+    id: "housify",
     title: "Housify",
     tagline: "Property marketplace platform",
     description:
@@ -256,53 +276,67 @@ export const projects = [
 
 export const certifications = [
   {
+    title: "Aspire Leadership Program (ALP 24)",
+    issuer: "Aspire Institute",
+    year: "2024",
+    period: "Jan 2024 — Aug 2024",
+    url: "https://www.aspireleaders.org",
+    icon: "award",
+    logo: "/logos/aspire-institute.svg",
+  },
+  {
     title: "Introduction to SQL",
     issuer: "DataCamp",
     year: "2024",
+    period: null,
     url: "https://www.datacamp.com",
     icon: "database",
+    logo: null,
   },
   {
     title: "Understanding Cloud Computing",
     issuer: "DataCamp",
     year: "2024",
+    period: null,
     url: "https://www.datacamp.com",
     icon: "cloud",
+    logo: null,
   },
   {
     title: "Prompt Engineering for ChatGPT",
     issuer: "Vanderbilt University",
     year: "2024",
+    period: null,
     url: "https://www.coursera.org",
     icon: "sparkles",
+    logo: null,
   },
   {
     title: "Programming Foundations with JavaScript, HTML & CSS",
     issuer: "Duke University",
     year: "2023",
+    period: null,
     url: "https://www.coursera.org",
     icon: "code",
+    logo: null,
   },
   {
     title: "Foundations of Git",
     issuer: "DataCamp",
     year: "2024",
+    period: null,
     url: "https://www.datacamp.com",
     icon: "git",
+    logo: null,
   },
   {
     title: "Team Building & Leadership in Program Management",
     issuer: "Microsoft",
     year: "2024",
+    period: null,
     url: "https://www.microsoft.com",
     icon: "users",
-  },
-  {
-    title: "ALP 24",
-    issuer: "Aspire Institute",
-    year: "2024",
-    url: "https://www.aspireleaders.org",
-    icon: "award",
+    logo: null,
   },
 ];
 
@@ -325,7 +359,7 @@ export const achievements = [
   {
     value: "7",
     label: "Certifications",
-    description: "From DataCamp, Duke, Vanderbilt & Microsoft",
+    description: "From Aspire, DataCamp, Duke, Vanderbilt & Microsoft",
   },
   {
     value: "2",

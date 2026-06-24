@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="12" fill="#1B3A5C"/>
+  <path d="M32 14L44 22V38L32 46L20 38V22L32 14Z" stroke="#C9A227" stroke-width="2" fill="none"/>
+  <path d="M32 24V36M28 28H36" stroke="#C9A227" stroke-width="2" stroke-linecap="round"/>
+  <text x="32" y="58" text-anchor="middle" font-family="Georgia, serif" font-size="8" fill="#C9A227">ASPIRE</text>
+</svg>

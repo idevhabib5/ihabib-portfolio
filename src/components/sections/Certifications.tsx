@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   Award,
@@ -33,7 +34,7 @@ export function Certifications() {
         <SectionHeading
           label="Certifications"
           title="Credentials & learning"
-          description="Professional certifications validating expertise across databases, cloud, AI, and leadership."
+          description="Professional certifications validating expertise across leadership, databases, cloud, AI, and engineering."
         />
 
         <StaggerChildren className="mt-10 grid sm:grid-cols-2 gap-4">
@@ -48,15 +49,28 @@ export function Certifications() {
                   whileHover={{ y: -3 }}
                   className="card card-hover p-5 flex items-start gap-4 group"
                 >
-                  <div className="p-2.5 rounded-full bg-accent-muted text-accent shrink-0">
-                    <Icon size={18} />
-                  </div>
+                  {cert.logo ? (
+                    <div className="relative w-10 h-10 rounded-full overflow-hidden border border-border shrink-0 bg-surface">
+                      <Image
+                        src={cert.logo}
+                        alt={`${cert.issuer} logo`}
+                        fill
+                        className="object-contain p-1"
+                      />
+                    </div>
+                  ) : (
+                    <div className="p-2.5 rounded-full bg-accent-muted text-accent shrink-0">
+                      <Icon size={18} />
+                    </div>
+                  )}
                   <div className="flex-1 min-w-0">
                     <h3 className="font-semibold text-foreground text-sm leading-snug group-hover:text-accent transition-colors">
                       {cert.title}
                     </h3>
                     <p className="text-xs text-muted mt-1">{cert.issuer}</p>
-                    <p className="text-xs text-muted/70 mt-2 font-mono">{cert.year}</p>
+                    <p className="text-xs text-muted/70 mt-2 font-mono">
+                      {cert.period ?? cert.year}
+                    </p>
                   </div>
                   <ExternalLink
                     size={14}
