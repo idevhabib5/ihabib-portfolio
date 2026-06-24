@@ -16,7 +16,7 @@ export function Projects() {
         <SectionHeading
           label="Projects"
           title="Featured work"
-          description="End-to-end applications spanning marketplaces, AI SaaS, social platforms, and secure APIs."
+          description="End-to-end applications spanning cross-university platforms, marketplaces, AI SaaS, and social apps."
         />
 
         <StaggerChildren className="mt-10 grid md:grid-cols-2 gap-6">
@@ -46,6 +46,9 @@ export function Projects() {
                   <h3 className="font-serif text-xl font-bold text-foreground mt-1">
                     {project.title}
                   </h3>
+                  {"period" in project && project.period && (
+                    <p className="text-xs text-accent font-medium mt-1">{project.period}</p>
+                  )}
                   <p className="text-sm text-muted mt-2 leading-relaxed flex-1">
                     {project.description}
                   </p>

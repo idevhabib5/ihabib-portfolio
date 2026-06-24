@@ -50,7 +50,7 @@ export const aboutContent = {
   ],
   highlights: [
   "Ranked 1st among 120+ teams in a nationwide Full-Stack Development Competition",
-    "CGPA 3.57/4.00 in Computer Science at COMSATS University Islamabad",
+    "Magna cum laude in Computer Science at COMSATS University Islamabad",
     "Shipped 4+ production-grade projects spanning marketplaces, SaaS, and social platforms",
     "7 professional certifications from DataCamp, Duke, Vanderbilt & Microsoft",
   ],
@@ -149,8 +149,7 @@ export const experience = [
 export const education = {
   institution: "COMSATS University Islamabad",
   degree: "Bachelor of Science in Computer Science",
-  period: "2023 — 2027",
-  cgpa: "3.57 / 4.00",
+  honors: "Magna cum laude",
   coursework: [
     "Data Structures",
     "Algorithms",
@@ -162,7 +161,31 @@ export const education = {
 
 export const projects = [
   {
-    id: "housify",
+    id: "universe",
+    title: "UniVerse",
+    tagline: "Cross-university collaboration · MicroKosm",
+    description:
+      "A web platform designed to break down academic silos by enabling students from different universities to connect, collaborate, and share resources in one unified space — fostering global collaboration, peer learning, and project-based engagement beyond institutional boundaries.",
+    impact: [
+      "Cross-university student networking and collaboration",
+      "Secure authentication with Google OAuth and role-based access with data isolation between institutions",
+      "Scalable, real-time-ready backend with a responsive, modern user interface",
+    ],
+    technologies: [
+      "React",
+      "TypeScript",
+      "Google OAuth",
+      "PostgreSQL",
+      "Tailwind CSS",
+    ],
+    github: "https://github.com/idevhabib5",
+    live: "https://uni-verse-livid.vercel.app/",
+    featured: true,
+    period: "Sep 2025 — Present",
+    gradient: "from-indigo-500/20 to-violet-600/20",
+    accent: "#6366f1",
+  },
+  {
     title: "Housify",
     tagline: "Property marketplace platform",
     description:
@@ -229,24 +252,6 @@ export const projects = [
     gradient: "from-emerald-500/20 to-teal-600/20",
     accent: "#10b981",
   },
-  {
-    id: "rbac-api",
-    title: "RBAC Authentication API",
-    tagline: "Secure access control service",
-    description:
-      "A production-grade role-based access control API with JWT authentication, audit logging, and PostgreSQL-backed user management.",
-    impact: [
-      "Granular role-based permissions with JWT token authentication",
-      "PostgreSQL schema design with optimized SQL queries",
-      "Comprehensive audit logging for security and compliance",
-    ],
-    technologies: ["Node.js", "PostgreSQL", "JWT", "REST APIs"],
-    github: "https://github.com/idevhabib5",
-    live: null,
-    featured: false,
-    gradient: "from-amber-500/20 to-orange-600/20",
-    accent: "#f59e0b",
-  },
 ];
 
 export const certifications = [
@@ -308,8 +313,8 @@ export const achievements = [
     description: "Ranked 1st among 120+ teams in Full-Stack Development",
   },
   {
-    value: "3.57",
-    label: "CGPA",
+    value: "Magna",
+    label: "Cum Laude",
     description: "Bachelor of Science in Computer Science",
   },
   {

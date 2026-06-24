@@ -53,10 +53,9 @@ export function About() {
                 </div>
               </div>
               <p className="text-foreground font-medium">{education.degree}</p>
-              <p className="text-sm text-muted mt-1">{education.period}</p>
               <div className="mt-4 flex items-baseline gap-2">
-                <span className="font-serif text-3xl font-bold text-accent">{education.cgpa}</span>
-                <span className="text-sm text-muted">CGPA</span>
+                <span className="font-serif text-2xl sm:text-3xl font-bold text-accent">{education.honors}</span>
+                <span className="text-sm text-muted">Honors</span>
               </div>
               <div className="mt-4 flex flex-wrap gap-2">
                 {education.coursework.map((course) => (
