@@ -146,37 +146,25 @@ export const experience = [
   },
 ];
 
-export const educationEntries = [
-  {
-    id: "comsats",
-    institution: "COMSATS University Islamabad",
-    program: "Bachelor of Science in Computer Science",
-    honors: "Magna cum laude",
-    period: null,
-    logo: null,
-    skills: [] as string[],
-    coursework: [
-      "Data Structures",
-      "Algorithms",
-      "Database Systems",
-      "Software Engineering",
-      "Web Development",
-    ],
-  },
-  {
-    id: "aspire",
+export const education = {
+  institution: "COMSATS University Islamabad",
+  program: "Bachelor of Science in Computer Science",
+  honors: "Magna cum laude",
+  coursework: [
+    "Data Structures",
+    "Algorithms",
+    "Database Systems",
+    "Software Engineering",
+    "Web Development",
+  ],
+  leadershipProgram: {
     institution: "Aspire Institute",
     program: "Leadership Program",
-    honors: null,
     period: "Jan 2024 — Aug 2024",
     logo: "/logos/aspire-institute.svg",
     skills: ["Leadership", "Communication", "Team Building"],
-    coursework: [] as string[],
   },
-];
-
-/** @deprecated Use educationEntries — kept for any legacy imports */
-export const education = educationEntries[0];
+};
 
 export const projects = [
   {

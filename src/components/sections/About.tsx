@@ -2,85 +2,15 @@
 
 import Image from "next/image";
 import { GraduationCap, Sparkles, Code, Brain, Users, Database } from "lucide-react";
-import { aboutContent, educationEntries } from "@/data/portfolio";
+import { aboutContent, education } from "@/data/portfolio";
 import { AnimatedSection, FadeIn, StaggerChildren, StaggerItem } from "@/components/ui/AnimatedSection";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const strengthIcons = [Code, Brain, Users, Database];
 
-function EducationCard({
-  entry,
-}: {
-  entry: (typeof educationEntries)[number];
-}) {
-  return (
-    <div className="card p-6 md:p-8 h-full">
-      <div className="flex items-start gap-3 mb-4">
-        {entry.logo ? (
-          <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-border shrink-0 bg-surface">
-            <Image
-              src={entry.logo}
-              alt={`${entry.institution} logo`}
-              fill
-              className="object-contain p-1.5"
-            />
-          </div>
-        ) : (
-          <div className="p-2.5 rounded-xl bg-accent-muted text-accent shrink-0">
-            <GraduationCap size={20} />
-          </div>
-        )}
-        <div className="min-w-0">
-          <p className="text-xs text-muted uppercase tracking-wider">Education</p>
-          <p className="font-semibold text-foreground">{entry.institution}</p>
-        </div>
-      </div>
-
-      <p className="text-foreground font-medium">{entry.program}</p>
-
-      {entry.period && (
-        <p className="text-sm text-muted mt-1">{entry.period}</p>
-      )}
-
-      {entry.honors && (
-        <div className="mt-4 flex items-baseline gap-2">
-          <span className="font-serif text-2xl sm:text-3xl font-bold text-accent">
-            {entry.honors}
-          </span>
-          <span className="text-sm text-muted">Honors</span>
-        </div>
-      )}
-
-      {entry.skills.length > 0 && (
-        <div className="mt-4 flex flex-wrap gap-2">
-          {entry.skills.map((skill) => (
-            <span
-              key={skill}
-              className="text-xs px-3 py-1 rounded-full bg-surface text-muted border border-border"
-            >
-              {skill}
-            </span>
-          ))}
-        </div>
-      )}
-
-      {entry.coursework.length > 0 && (
-        <div className="mt-4 flex flex-wrap gap-2">
-          {entry.coursework.map((course) => (
-            <span
-              key={course}
-              className="text-xs px-3 py-1 rounded-full bg-surface text-muted border border-border"
-            >
-              {course}
-            </span>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
-
 export function About() {
+  const { leadershipProgram } = education;
+
   return (
     <AnimatedSection id="about" className="section-padding">
       <div className="container-custom">
@@ -114,10 +44,68 @@ export function About() {
             </div>
           </FadeIn>
 
-          <FadeIn delay={0.1} className="space-y-4">
-            {educationEntries.map((entry) => (
-              <EducationCard key={entry.id} entry={entry} />
-            ))}
+          <FadeIn delay={0.1}>
+            <div className="card p-6 md:p-8 h-full flex flex-col">
+              <div className="flex items-start gap-3 mb-4">
+                <div className="p-2.5 rounded-xl bg-accent-muted text-accent shrink-0">
+                  <GraduationCap size={20} />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-xs text-muted uppercase tracking-wider">Education</p>
+                  <p className="font-semibold text-foreground">{education.institution}</p>
+                </div>
+              </div>
+
+              <p className="text-foreground font-medium">{education.program}</p>
+
+              <div className="mt-4 flex items-baseline gap-2">
+                <span className="font-serif text-2xl sm:text-3xl font-bold text-accent">
+                  {education.honors}
+                </span>
+                <span className="text-sm text-muted">Honors</span>
+              </div>
+
+              <div className="mt-4 flex flex-wrap gap-2">
+                {education.coursework.map((course) => (
+                  <span
+                    key={course}
+                    className="text-xs px-3 py-1 rounded-full bg-surface text-muted border border-border"
+                  >
+                    {course}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-6 pt-6 border-t border-border flex-1">
+                <div className="flex items-start gap-3">
+                  <div className="relative w-10 h-10 rounded-lg overflow-hidden border border-border shrink-0 bg-surface">
+                    <Image
+                      src={leadershipProgram.logo}
+                      alt={`${leadershipProgram.institution} logo`}
+                      fill
+                      className="object-contain p-1"
+                    />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="font-semibold text-foreground text-sm">
+                      {leadershipProgram.institution}
+                    </p>
+                    <p className="text-sm text-muted">{leadershipProgram.program}</p>
+                    <p className="text-xs text-muted mt-0.5">{leadershipProgram.period}</p>
+                  </div>
+                </div>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {leadershipProgram.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="text-xs px-3 py-1 rounded-full bg-accent-muted text-accent border border-accent/20"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
           </FadeIn>
         </div>
 

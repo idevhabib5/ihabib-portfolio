@@ -91,8 +91,7 @@ export function Projects() {
                         href={project.live}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-sm font-medium text-white px-4 py-2 rounded-lg transition-opacity hover:opacity-90"
-                        style={{ backgroundColor: project.accent }}
+                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-white px-4 py-2 rounded-lg bg-accent hover:bg-accent-light transition-all duration-300 hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5 active:translate-y-0"
                       >
                         Live Demo
                         <ExternalLink size={14} />
