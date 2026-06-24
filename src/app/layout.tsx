@@ -4,8 +4,10 @@ import "./globals.css";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { MobileHeader } from "@/components/layout/MobileHeader";
 import { SidebarProvider } from "@/components/layout/SidebarContext";
+import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { BackgroundOrbs } from "@/components/ui/BackgroundOrbs";
 import { personalInfo } from "@/data/portfolio";
 import { getSiteUrl } from "@/lib/site";
 
@@ -65,25 +67,42 @@ export const metadata: Metadata = {
   },
 };
 
+const themeScript = `
+  (function() {
+    try {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      if (theme === 'dark') document.documentElement.classList.add('dark');
+    } catch (e) {}
+  })();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className={`${dmSans.variable} ${dmSerif.variable} font-sans`}>
         <JsonLd />
-        <SidebarProvider>
-          <div className="flex min-h-screen">
-            <Sidebar />
-            <div className="flex-1 flex flex-col min-w-0 lg:ml-[300px]">
-              <MobileHeader />
-              <main className="flex-1">{children}</main>
-              <Footer />
+        <ThemeProvider>
+          <SidebarProvider>
+            <BackgroundOrbs />
+            <div className="flex min-h-screen">
+              <Sidebar />
+              <div className="flex-1 flex flex-col min-w-0 lg:ml-[300px]">
+                <MobileHeader />
+                <main className="flex-1">{children}</main>
+                <Footer />
+              </div>
             </div>
-          </div>
-        </SidebarProvider>
+          </SidebarProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

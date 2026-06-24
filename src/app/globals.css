@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-dm-serif), ui-serif, Georgia, serif;
@@ -23,6 +25,19 @@
   --radius-2xl: 1.5rem;
 }
 
+.dark {
+  --color-background: #0c0c10;
+  --color-foreground: #f4f4f5;
+  --color-muted: #a1a1aa;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-card: #141418;
+  --color-accent: #5a8f6f;
+  --color-accent-light: #7cb592;
+  --color-accent-muted: rgba(90, 143, 111, 0.12);
+  --color-surface: #111116;
+  --color-surface-elevated: #1a1a20;
+}
+
 @layer base {
   * {
     @apply border-border;
@@ -34,17 +49,23 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply bg-background text-foreground antialiased transition-colors duration-300;
     background-image: linear-gradient(
       180deg,
-      rgba(61, 107, 79, 0.04) 0%,
-      transparent 40%
+      rgba(61, 107, 79, 0.05) 0%,
+      transparent 45%
     );
   }
 
+  .dark body {
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(90, 143, 111, 0.12), transparent),
+      radial-gradient(ellipse 50% 40% at 100% 50%, rgba(90, 143, 111, 0.06), transparent);
+  }
+
   ::selection {
-    background: rgba(61, 107, 79, 0.2);
-    color: #1a1a1a;
+    background: rgba(61, 107, 79, 0.25);
+    color: inherit;
   }
 
   :focus-visible {
@@ -54,8 +75,12 @@
 
 @layer utilities {
   .card {
-    @apply bg-card rounded-2xl border border-border;
+    @apply bg-card rounded-2xl border border-border transition-colors duration-300;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  }
+
+  .dark .card {
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.35);
   }
 
   .card-elevated {
@@ -63,17 +88,30 @@
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
   }
 
+  .dark .card-elevated {
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+  }
+
   .card-hover {
     @apply transition-all duration-300;
   }
 
   .card-hover:hover {
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+  }
+
+  .dark .card-hover:hover {
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
   }
 
   .font-serif {
     font-family: var(--font-serif);
+  }
+
+  .text-gradient-name {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, var(--color-foreground) 0%, var(--color-accent) 60%, var(--color-accent-light) 100%);
   }
 
   .section-title {
@@ -93,11 +131,11 @@
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded-xl bg-accent text-white hover:bg-accent-light transition-colors;
+    @apply inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded-xl bg-accent text-white hover:bg-accent-light transition-all duration-300 hover:shadow-lg hover:shadow-accent/20 hover:-translate-y-0.5;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded-xl border border-border bg-white text-foreground hover:border-accent/30 hover:bg-accent-muted transition-colors;
+    @apply inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded-xl border border-border bg-card text-foreground hover:border-accent/40 hover:bg-accent-muted transition-all duration-300 hover:-translate-y-0.5;
   }
 }
 
@@ -106,14 +144,18 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #f7f5f2;
+  background: var(--color-background);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(61, 107, 79, 0.3);
+  background: rgba(61, 107, 79, 0.35);
   border-radius: 4px;
 }
 
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(90, 143, 111, 0.4);
+}
+
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(61, 107, 79, 0.5);
+  background: rgba(61, 107, 79, 0.55);
 }

@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { navLinks, personalInfo } from "@/data/portfolio";
 import { Avatar } from "@/components/ui/Avatar";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { cn } from "@/lib/utils";
 import { formatPhoneForTel } from "@/lib/utils";
 import { useSidebar } from "./SidebarContext";
@@ -39,6 +40,10 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
 
   return (
     <div className="flex flex-col h-full">
+      <div className="flex justify-end mb-4">
+        <ThemeToggle />
+      </div>
+
       <div className="text-center pb-6 border-b border-border">
         <div className="flex justify-center mb-4">
           <Avatar size="lg" />
@@ -52,7 +57,11 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
           {personalInfo.location}
         </p>
         <span className="inline-flex items-center gap-1.5 mt-3 px-3 py-1 rounded-full bg-accent-muted text-xs font-medium text-accent">
-          <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+          <motion.span
+            className="w-1.5 h-1.5 rounded-full bg-accent"
+            animate={{ scale: [1, 1.4, 1], opacity: [1, 0.6, 1] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          />
           {personalInfo.availability}
         </span>
       </div>

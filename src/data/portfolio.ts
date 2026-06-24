@@ -13,7 +13,7 @@ export const personalInfo = {
 };
 
 export const heroContent = {
-  greeting: "Hello, I'm",
+  greeting: "Hi, I am",
   headline: "I craft production-ready web experiences that scale.",
   summary:
     "Junior Full Stack Developer specializing in React, TypeScript, and cloud-native backends. I build responsive interfaces, secure authentication systems, and AI-powered SaaS products — with a track record of shipping features in remote, agile teams.",
